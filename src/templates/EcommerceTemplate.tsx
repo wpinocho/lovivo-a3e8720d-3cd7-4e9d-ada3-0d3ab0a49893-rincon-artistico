@@ -119,7 +119,7 @@ export const EcommerceTemplate = ({
           {/* Brand */}
           <div>
             <div className="mb-4">
-              <span className="text-2xl font-light tracking-tight">Mi Rincón</span>
+              <span className="text-2xl font-light tracking-tight">Azul Profundo</span>
             </div>
             <p className="text-background/70 font-light leading-relaxed">
               Acuarelas originales que evocan la tranquilidad del mar.
@@ -153,7 +153,7 @@ export const EcommerceTemplate = ({
         </div>
 
         <div className="mt-12 pt-8 border-t border-background/20 text-center text-background/60 font-light text-sm">
-          <p>&copy; 2025 Mi Rincón - Patricia Etchegaray J. Todos los derechos reservados.</p>
+          <p>&copy; 2025 Azul Profundo - Patricia Etchegaray J. Todos los derechos reservados.</p>
         </div>
       </div>
     </div>

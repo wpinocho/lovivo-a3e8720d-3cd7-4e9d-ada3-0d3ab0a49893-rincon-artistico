@@ -133,7 +133,7 @@ export const IndexUI = ({ logic }: IndexUIProps) => {
       <section className="py-24 bg-muted/20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-light text-foreground mb-8 tracking-tight">
-            Mi Rincón
+            Azul Profundo
           </h2>
           <p className="text-lg text-muted-foreground font-light leading-relaxed mb-6">
             El dibujo siempre me ha llamado la atención. Ahora, lo disfruto muchísimo. 
