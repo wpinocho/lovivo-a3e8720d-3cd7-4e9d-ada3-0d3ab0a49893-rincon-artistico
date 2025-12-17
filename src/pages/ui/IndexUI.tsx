@@ -35,26 +35,45 @@ export const IndexUI = ({ logic }: IndexUIProps) => {
       showCart={true}
     >
       {/* Hero Section */}
-      <section className="bg-background py-12 border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl font-bold text-foreground mb-4">
-            Discover Our Products
-          </h1>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Find the best products at the best price. Guaranteed quality and fast shipping.
-          </p>
+      <section className="relative h-[70vh] min-h-[500px] overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: 'url(/hero-ocean.jpg)' }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/40 to-background"></div>
+        </div>
+        
+        <div className="relative h-full flex items-center justify-center">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 className="text-5xl lg:text-7xl font-light text-foreground mb-6 tracking-tight">
+              Acuarelas que<br />inspiran serenidad
+            </h1>
+            <p className="text-xl text-muted-foreground mb-12 font-light max-w-2xl mx-auto leading-relaxed">
+              Obras originales que evocan la tranquilidad del mar.<br />
+              Por Patricia Etchegaray J.
+            </p>
+            <div className="flex gap-4 justify-center">
+              <Button 
+                size="lg" 
+                className="rounded-none px-8 py-6 text-base font-light tracking-wide"
+                onClick={() => document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Ver obras
+              </Button>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Collections Section */}
       {!loadingCollections && collections.length > 0 && (
-        <section id="collections" className="py-12 bg-muted/30">
+        <section id="collections" className="py-24 bg-muted/20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl font-bold text-foreground mb-8">
-              Our Collections
+            <h2 className="text-4xl font-light text-foreground mb-16 text-center tracking-tight">
+              Colecciones
             </h2>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
               {collections.map((collection) => (
                 <CollectionCard 
                   key={collection.id} 
@@ -68,44 +87,62 @@ export const IndexUI = ({ logic }: IndexUIProps) => {
       )}
 
       {/* Products Section */}
-      <section id="products" className="py-12">
+      <section id="products" className="py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="text-2xl font-bold text-foreground">
+          <div className="flex items-center justify-between mb-16">
+            <h2 className="text-4xl font-light text-foreground tracking-tight">
               {selectedCollectionId 
-                ? `Products from ${collections.find(c => c.id === selectedCollectionId)?.name || 'Collection'}` 
-                : 'Featured Products'
+                ? collections.find(c => c.id === selectedCollectionId)?.name || 'Colección'
+                : 'Obras destacadas'
               }
             </h2>
             {selectedCollectionId && (
               <Button 
-                variant="outline" 
+                variant="ghost" 
                 onClick={handleShowAllProducts}
+                className="font-light"
               >
-                See All Products
+                Ver todas las obras
               </Button>
             )}
           </div>
           
           {loading ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {[...Array(8)].map((_, i) => (
-                <div key={i} className="bg-muted rounded-lg h-80 animate-pulse"></div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+              {[...Array(6)].map((_, i) => (
+                <div key={i} className="bg-muted aspect-[3/4] animate-pulse"></div>
               ))}
             </div>
           ) : filteredProducts.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
               {filteredProducts.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
             </div>
           ) : (
-            <div className="text-center py-12">
-              <p className="text-muted-foreground">
-                No products available.
+            <div className="text-center py-20">
+              <p className="text-muted-foreground font-light text-lg">
+                No hay obras disponibles en este momento.
               </p>
             </div>
           )}
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section className="py-24 bg-muted/20">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl font-light text-foreground mb-8 tracking-tight">
+            Mi Rincón
+          </h2>
+          <p className="text-lg text-muted-foreground font-light leading-relaxed mb-6">
+            El dibujo siempre me ha llamado la atención. Ahora, lo disfruto muchísimo. 
+            Cada acuarela nace de mi fascinación por el mar y los paisajes tranquilos 
+            que invitan a la contemplación.
+          </p>
+          <p className="text-base text-muted-foreground font-light">
+            — Patricia Etchegaray J.
+          </p>
         </div>
       </section>
 
