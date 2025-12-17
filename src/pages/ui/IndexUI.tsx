@@ -38,7 +38,7 @@ export const IndexUI = ({ logic }: IndexUIProps) => {
       <section className="relative h-[70vh] min-h-[500px] overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: 'url(/hero-ocean.jpg)' }}
+          style={{ backgroundImage: 'url(https://ptgmltivisbtvmoxwnhd.supabase.co/storage/v1/object/public/message-images/676d6365-cce7-48b6-addb-6ede9960d4c1/1766012806504-y67zjmek35.jpg)' }}
         >
           <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/40 to-background"></div>
         </div>
